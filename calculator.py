@@ -3,6 +3,8 @@
 
 # # My First Calculator
 
+calc_on = 1
+
 def addition():
     first = float(input('I will add 2 numbers. What is your first number? '))
     second = float(input('What is your second number? '))
@@ -32,8 +34,16 @@ def modulo():
     second = float(input('What is your second number? '))
     print(first % second)
 
+def count_to_ten():
+    for number in range(1, 11):
+        print(number)
+    
+def quit():
+    global calc_on
+    calc_on = 0
+        
 def calc_run():
-    op = input('add, subtract, multiply, divide, or modulo? ')
+    op = input('add, subtract, multiply, divide, modulo, ten or quit? ')
     if op == 'add':
         addition()
     elif op == 'subtract':
@@ -44,7 +54,10 @@ def calc_run():
         division()
     elif op == 'modulo':
         modulo()
+    elif op == 'ten':
+        count_to_ten()
     else:
-        print('You chose an invalid operation. Please try again. Thank you. Goodbye')
+        quit()
         
-calc_run()
+while calc_on == 1:
+    calc_run()
